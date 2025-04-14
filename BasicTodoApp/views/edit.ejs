@@ -1,0 +1,6 @@
+<h1>Edit Todo</h1>
+<form action="/update/<%= list._id %>" method="POST">
+    <input type="text" name="todoName" value="<%= list.todoName %>" required>
+    <input type="date" name="todoDate" value="<%= list.todoDate %>" required>
+    <button type="submit">Update Todo</button>
+</form>

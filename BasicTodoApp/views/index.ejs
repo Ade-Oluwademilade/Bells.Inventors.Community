@@ -1,0 +1,18 @@
+<h1>Simple Todo app</h1>
+<a href="/new">Add Todo</a>
+<ul>
+    <% lists.forEach(list => { %>
+        <li style="<%= list.completed ? 'text-decoration: line-through;' : '' %>" >
+            <%= list.todoName %> - <%= list.todoDate %>
+            <form action="/done/<%= list._id %>" method="POST" style="display: inline;">
+                <button type="submit"><%= list.completed ? "Undo" : "Mark as Done" %></button>
+            </form>
+        </li>
+        <form action="/edit/<%= list._id %>" method="GET" style="display: inline;">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/delete/<%= list._id %>" method="POST" style="display: inline;">
+            <button type="submit">Delete</button>
+        </form>
+    <% }) %>
+</ul>
